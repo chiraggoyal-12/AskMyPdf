@@ -84,25 +84,12 @@ AskMyPDF/
 
 ---
 
-## 💡 Future Improvements
-
-* Add support for multiple users
-* Implement better PDF chunking
-* Enhance UI/UX
-* Use vector DBs like Pinecone for scalable embedding storage
-* Add streaming responses from the LLM
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License.
-
----
-
-## 🙋‍♂️ Author
+## 🙌 Author
 
 **Chirag Goyal**
-[GitHub](https://github.com/chiraggoyal-12)
+[GitHub Profile](https://github.com/chiraggoyal-12)
 
-> Have suggestions or want to contribute? Feel free to open issues or submit a PR!
+---
+
+> ⚠️ This project is for educational/demo purposes only.
+
