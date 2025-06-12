@@ -19,3 +19,14 @@ input, button {
 .alert {
   border-radius: 0.5rem;
 }
+
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+.dark-mode .card,
+.dark-mode .form-control,
+.dark-mode .btn {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}

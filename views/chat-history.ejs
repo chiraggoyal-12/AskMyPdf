@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+
+<h1 class="mb-4">Chat History</h1>
+
+<% if (history.length === 0) { %>
+  <p>No chat history available for this document yet.</p>
+<% } else { %>
+  <div class="list-group">
+    <% history.forEach(chat => { %>
+      <div class="list-group-item mb-3">
+        <strong>Q:</strong> <%= chat.question %><br>
+        <strong>A:</strong> <%= chat.answer %><br>
+        <small class="text-muted">Asked on: <%= new Date(chat.timestamp).toLocaleString() %></small>
+      </div>
+    <% }) %>
+  </div>
+<% } %>
+
+<a href="/chat/<%= documentId %>" class="btn btn-secondary mt-4">Back to Chat</a>
+
+<%- include('partials/footer') %>

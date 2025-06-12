@@ -1,6 +1,9 @@
 <%- include('partials/header') %>
 
 <h1 class="mb-4">Ask a Question</h1>
+<a href="/chat/<%= documentId %>/history" class="btn btn-outline-secondary mb-3">
+  View Chat History
+</a>
 
 <form id="questionForm" method="POST" action="/chat/<%= documentId %>" class="mb-4">
   <div class="input-group">
@@ -16,7 +19,4 @@
   </div>
 <% } %>
 
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+  <%- include('partials/footer') %>

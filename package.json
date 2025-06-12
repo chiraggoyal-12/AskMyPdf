@@ -12,7 +12,9 @@
   "description": "",
   "dependencies": {
     "axios": "^1.9.0",
+    "bcrypt": "^6.0.0",
     "connect-flash": "^0.1.1",
+    "connect-mongo": "^5.1.0",
     "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
@@ -22,7 +24,3 @@
     "pdf-parse": "^1.1.1"
   }
 }
-
-
-
-
