@@ -1,123 +1,108 @@
-# AskMyPDF 🧠📄
+# AskMyPDF
 
-AskMyPDF is a full-stack AI-powered web application that allows users to upload PDF files and ask questions about their content. It uses local inference via Ollama and the `nomic-embed-text` model for embedding generation and retrieval-based question answering (RAG).
+**AskMyPDF** is a full-stack web application that lets users upload PDF documents and chat with an AI assistant that answers questions based on the content of the uploaded PDF.
 
 ---
 
 ## 🚀 Features
 
-* 📄 Upload and store PDF documents securely
-* 🤖 Ask questions about the uploaded PDF using natural language
-* 🧠 Uses local LLMs with Ollama (`llama3` for generation and `nomic-embed-text` for embeddings)
-* 🔍 Retrieves relevant chunks using cosine similarity
-* 🛠️ Built with Node.js, Express, MongoDB, EJS, and Bootstrap
-* 💻 100% local — no OpenAI or external API required
+* 📄 Upload a PDF file and extract its content
+* 🧠 Embed document text using local LLM-based embeddings
+* 💬 Ask questions and receive context-based answers from the document
+* 🧾 View chat history and delete documents
+* 🔐 Authenticated access for secure usage
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Frontend**: EJS, HTML, CSS, JavaScript
-* **Backend**: Node.js, Express
-* **Database**: MongoDB
-* **LLM & Embeddings**: Ollama (`llama3`, `nomic-embed-text`)
-* **PDF Parsing**: `pdf-parse`
-* **Embeddings**: Cosine similarity-based chunk matching
+**Frontend:**
+
+* EJS Templating Engine
+* Bootstrap CSS
+
+**Backend:**
+
+* Node.js + Express
+* MongoDB (Mongoose)
+* Multer for file uploads
+* Ollama (Local LLM like LLaMA 3 or Mistral)
+* Apache Arrow & Faiss for vector storage (via custom utils)
+
+**Authentication:**
+
+* Custom auth middleware with session-based login (extendable)
 
 ---
 
-## 📦 Installation
-
-### Prerequisites:
-
-* Node.js & npm
-* MongoDB installed and running locally or via Atlas
-* [Ollama](https://ollama.com/) installed (version ≥ 0.9.0)
-* Pull the required models:
-
-```bash
-ollama pull nomic-embed-text
-ollama pull llama3
-```
-
-### Setup:
-
-```bash
-git clone https://github.com/your-username/askmypdf.git
-cd askmypdf
-npm install
-```
-
-### Environment variables:
-
-Create a `.env` file and add:
-
-```env
-MONGODB_URI=mongodb://localhost:27017/askmypdf
-PORT=3000
-```
-
-### Run the App:
-
-```bash
-npm start
-```
-
-Visit `http://localhost:3000` in your browser.
-
----
-
-## 🤖 How It Works
-
-1. User uploads a PDF.
-2. The PDF is chunked and converted to text.
-3. Embeddings are generated locally using `nomic-embed-text` via Ollama.
-4. User asks a question.
-5. Embedding of the question is compared to the stored chunks using cosine similarity.
-6. Top-k relevant chunks are passed to `llama3` via Ollama for generating an answer.
-7. Answer is returned to the user.
-
----
-
-## 📁 Project Structure
+## 📂 Folder Structure
 
 ```
-.
-├── routes/
-├── views/
-├── utils/
-├── public/
-├── models/
-├── uploads/
-├── app.js
-├── .env
+AskMyPDF/
+├── models/            # Mongoose schemas (Document, ChatHistory)
+├── routes/            # Express routes (upload, chat)
+├── utils/             # PDF parsing, embeddings, vector DB, Ollama
+├── views/             # EJS templates (home, chat, history)
+├── uploads/           # Uploaded PDF files
+├── public/            # Static files (CSS, JS)
+├── app.js             # Entry point
+├── package.json       # Project metadata and scripts
 ```
 
 ---
 
-## 🙌 Acknowledgements
+## ⚙️ Setup Instructions
 
-* [Ollama](https://ollama.com/) for local model inference
-* [`nomic-embed-text`](https://ollama.com/library/nomic-embed-text) and [`llama3`](https://ollama.com/library/llama3) models
-* Bootstrap for quick UI
+1. **Clone the repo**:
+
+   ```bash
+   git clone https://github.com/chiraggoyal-12/AskMyPdf.git
+   cd AskMyPdf
+   ```
+
+2. **Install dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Run MongoDB locally or connect MongoDB Atlas**
+
+4. **Start Ollama with your preferred model (e.g., LLaMA3)**
+
+   ```bash
+   ollama run llama3
+   ```
+
+5. **Run the server**:
+
+   ```bash
+   node app.js
+   ```
+
+6. **Visit**: `http://localhost:3000`
 
 ---
 
 ## 💡 Future Improvements
 
-* Switch to a vector database (e.g., Pinecone, Chroma)
-* User authentication
-* Chat history
-* Streamed responses
-* Deploy with Docker
+* Add support for multiple users
+* Implement better PDF chunking
+* Enhance UI/UX
+* Use vector DBs like Pinecone for scalable embedding storage
+* Add streaming responses from the LLM
 
 ---
 
-## 🙌 Author
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 🙋‍♂️ Author
 
 **Chirag Goyal**
-[GitHub Profile](https://github.com/chiraggoyal-12)
+[GitHub](https://github.com/chiraggoyal-12)
 
----
-
-> ⚠️ This project is for educational/demo purposes only.
+> Have suggestions or want to contribute? Feel free to open issues or submit a PR!
