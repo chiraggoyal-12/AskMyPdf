@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+
+<h1 class="mb-4">Ask a Question</h1>
+
+<form id="questionForm" method="POST" action="/chat/<%= documentId %>" class="mb-4">
+  <div class="input-group">
+    <input type="text" name="question" id="question" class="form-control" placeholder="Type your question..." required />
+    <button class="btn btn-success" type="submit">Ask</button>
+  </div>
+</form>
+
+<% if (answer) { %>
+  <div class="card p-3 shadow-sm">
+    <h5>Answer:</h5>
+    <p><%= answer %></p>
+  </div>
+<% } %>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
